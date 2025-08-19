@@ -80,7 +80,7 @@ local Input = Tab:CreateInput({
 
 local Inpu2t = Tab:CreateInput({
    Name = "times youll be moved forward",
-   CurrentValue = "0",
+   CurrentValue = "30",
    PlaceholderText = "the times",
    RemoveTextAfterFocusLost = false,
    Flag = "Input2",
