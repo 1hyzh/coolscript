@@ -9,7 +9,7 @@ local Window = Rayfield:CreateWindow({
    LoadingTitle = "",
    LoadingSubtitle = "by hyzh",
    ShowText = "cool", -- for mobile users to unhide rayfield, change if you'd like
-   Theme = "Default", -- Check https://docs.sirius.menu/rayfield/configuration/themes
+   Theme = "Ocean", -- Check https://docs.sirius.menu/rayfield/configuration/themes
 
    ToggleUIKeybind = "K", -- The keybind to toggle the UI visibility (string like "K" or Enum.KeyCode)
 
