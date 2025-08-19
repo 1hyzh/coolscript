@@ -19,7 +19,7 @@ local Window = Rayfield:CreateWindow({
    ConfigurationSaving = {
       Enabled = true,
       FolderName = nil, -- Create a custom folder for your hub/game
-      FileName = "Big Hub"
+      FileName = "0x01"
    },
 
    Discord = {
@@ -41,7 +41,17 @@ local Window = Rayfield:CreateWindow({
 })
 
 
-
+local sound = Instance.new("Sound", workspace)
+                    sound.SoundId = "rbxassetid://4590662766"
+                    sound.Volume = _G.VolumeTime or 2
+                    sound.PlayOnRemove = true
+                    sound:Destroy()
+Rayfield:Notify({
+   Title = "Welcome!",
+   Content = "you now can mooooov",
+   Duration = 6.5,
+   Image = 4483362458,
+})
 
 local Tab = Window:CreateTab("coooooool", 4483362458) -- Title, Image
 
@@ -54,6 +64,17 @@ local Slider = Tab:CreateSlider({
    Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
    ammo = Value
+   end,
+})
+
+local Input = Tab:CreateInput({
+   Name = "ammount",
+   CurrentValue = "0",
+   PlaceholderText = "for more precise ammounts",
+   RemoveTextAfterFocusLost = false,
+   Flag = "Input1",
+   Callback = function(Text)
+   ammo = Text
    end,
 })
 
