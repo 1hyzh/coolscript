@@ -1,5 +1,5 @@
 local ammo = 10
-
+local times = 30
 
 
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
@@ -78,6 +78,17 @@ local Input = Tab:CreateInput({
    end,
 })
 
+local Inpu2t = Tab:CreateInput({
+   Name = "times youll be moved forward",
+   CurrentValue = "0",
+   PlaceholderText = "the times",
+   RemoveTextAfterFocusLost = false,
+   Flag = "Input2",
+   Callback = function(Text)
+   times = Text
+   end,
+})
+
 local Button = Tab:CreateButton({
    Name = "mooooooove",
    Callback = function()
@@ -92,7 +103,7 @@ local Button = Tab:CreateButton({
 
       
         for i = 1, ammo do
-            local newPosition = humanoidRootPart.Position + teleportDirection * 30
+            local newPosition = humanoidRootPart.Position + teleportDirection * times
             
             character:SetPrimaryPartCFrame(CFrame.new(newPosition))
 
