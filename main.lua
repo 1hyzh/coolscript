@@ -1,6 +1,10 @@
+-- global variables
 local ammo = 10
 local times = 30
-
+local wsA = 16
+local jpA = 50
+local loopWS = false
+local loopJP = false
 
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Window = Rayfield:CreateWindow({
@@ -116,3 +120,76 @@ local Button = Tab:CreateButton({
 
    end,
 })
+
+--Idk
+local Tab2 = Window:CreateTab("sum other things", 4483362458)
+
+local InputWS = Tab2:CreateInput({
+   Name = "WalkSpeed",
+   CurrentValue = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed,
+   PlaceholderText = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed,
+   RemoveTextAfterFocusLost = false,
+   Flag = "InputWS",
+   Callback = function(Text)
+   game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Text
+   wsA = Text
+   end,
+})
+
+local InputJP = Tab2:CreateInput({
+   Name = "JumpPower",
+   CurrentValue = game.Players.LocalPlayer.Character.Humanoid.JumpPower,
+   PlaceholderText = game.Players.LocalPlayer.Character.Humanoid.JumpHeight,
+   RemoveTextAfterFocusLost = false,
+   Flag = "InputJP",
+   Callback = function(Text)
+   game.Players.LocalPlayer.Character.Humanoid.JumpHeight = Text
+   game.Players.LocalPlayer.Character.Humanoid.JumpPower = Text
+   jpA = Text
+   end,
+})
+
+local KYSBtn = Tab2:CreateButton({
+   Name = "reset character",
+   Callback = function()
+   game.Players.LocalPlayer.Character.Humanoid.Health = -1
+   end,
+})
+
+local LToggleWS = Tab2:CreateToggle({
+   Name = "Loop WalkSpeed",
+   CurrentValue = false,
+   Flag = "Toggle1", 
+   Callback = function(Value)
+   loopWS = Value
+   end,
+})
+
+local LToggleJP = Tab2:CreateToggle({
+   Name = "Loop JumpPower",
+   CurrentValue = false,
+   Flag = "Toggle2", 
+   Callback = function(Value)
+   loopJP = Value
+   end,
+})
+
+
+
+
+
+--inf loop for sum toggles that make loops
+--IF IT AINT AT THE END THEUI WONT LOAD
+
+while 1 == 1 do
+   if loopWS == true then
+      game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = wsA
+      print("loopin ws")
+   end
+   if loopJP == true then
+      game.Players.LocalPlayer.Character.Humanoid.JumpHeight = jpA
+      game.Players.LocalPlayer.Character.Humanoid.JumpPower = jpA
+      print("loopin jp")
+   end
+   wait(1.2)
+end
